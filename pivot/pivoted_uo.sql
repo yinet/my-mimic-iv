@@ -1,3 +1,5 @@
+DROP MATERIALIZED VIEW IF EXISTS pivoted_uo; 
+CREATE MATERIALIZED VIEW pivoted_uo AS
 WITH niao AS
 (
 	select
