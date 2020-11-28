@@ -1,6 +1,8 @@
 -- create a table which has fuzzy boundaries on ICU admission (+- 12 hours from documented time)
 -- this is used to assign icustay_id to lab data, which can be collected outside ICU
 -- involves first creating a lag/lead version of intime/outtime
+DROP MATERIALIZED VIEW IF EXISTS pivoted_lab; 
+CREATE MATERIALIZED VIEW pivoted_lab AS
 with i as
 (
   select
