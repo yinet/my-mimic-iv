@@ -9,3 +9,4 @@ select
 	,date_part('epoch'::text, endtime - starttime) / 60::double precision / 60::double precision AS duration_hours
 from inputevents
 where itemid = 221906 -- norepinephrine
+ORDER BY stay_id,starttime
