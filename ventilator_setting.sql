@@ -74,6 +74,7 @@ with ce as
 )
 SELECT
       subject_id
+    , stay_id
     , charttime
     , MAX(CASE WHEN itemid = 224688 THEN valuenum ELSE NULL END) AS respiratory_rate_set
     , MAX(CASE WHEN itemid = 224690 THEN valuenum ELSE NULL END) AS respiratory_rate_total
@@ -90,5 +91,5 @@ SELECT
     , MAX(CASE WHEN itemid = 223848 THEN value ELSE NULL END) AS ventilator_type
     , MAX(CASE WHEN itemid in (227194, 225468, 225477) THEN valuenum ELSE NULL END) AS extubated
 FROM ce
-GROUP BY subject_id, charttime
-ORDER BY subject_id, charttime;
+GROUP BY subject_id, stay_id, charttime
+ORDER BY subject_id, stay_id, charttime;
